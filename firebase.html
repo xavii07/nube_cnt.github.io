@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,12 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
 </head>
+
 <body>
     <div class="container">
         <h1>Resgistrate!!</h1>
@@ -29,7 +32,28 @@
         </div>
         <button type="button" class="btn btn-success" onclick="registrar()">Enviar</button>
     </div>
-    <script src="./assets/js/sdkFirebase.js"></script>
-    <script src="./assets/js/registro.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDl1A-dH8W2ngxChfLbYPIug0qKWUZYook",
+            authDomain: "graphical-balm-404517.firebaseapp.com",
+            databaseURL: "https://graphical-balm-404517-default-rtdb.firebaseio.com",
+            projectId: "graphical-balm-404517",
+            storageBucket: "graphical-balm-404517.appspot.com",
+            messagingSenderId: "111611790604",
+            appId: "1:111611790604:web:2780dbcc05b850ebaef529"
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+
+        window.registrar = function () {
+            const nombre = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            console.log(nombre, email);
+        }
+    </script>
 </body>
+
 </html>
